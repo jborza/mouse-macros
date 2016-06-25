@@ -3,3 +3,7 @@
 ################################################################################
 
 /MouseMacros/bin
+*.suo
+/MouseMacros/obj
+/packages
+/MouseMacros/data
