@@ -45,6 +45,11 @@ namespace MouseMacros
                     var u = click as MouseUp;
                     Input.DoMouseUp(u.X, u.Y);
                 }
+                else if(click is MouseWheel)
+                {
+                    var w = click as MouseWheel;
+                    Input.DoMouseWheelScroll(w.X, w.Y, w.Delta);
+                }
             }
             for (int i = 0; i < 3; i++)
             {

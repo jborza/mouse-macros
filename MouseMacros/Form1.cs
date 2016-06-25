@@ -68,7 +68,6 @@ namespace MouseMacros
         {
             Input.MouseHookStruct data = (Input.MouseHookStruct)
                 Marshal.PtrToStructure(lParam, typeof(Input.MouseHookStruct));
-            //Console.WriteLine("@" + data.pt.x + "," + data.pt.y + " wParam:" + wParam);
             var lowLevelData = (Input.MouseHookStructLL)Marshal.PtrToStructure(lParam, typeof(Input.MouseHookStructLL));
 
             if ((Input.MouseMessages)wParam == Input.MouseMessages.WM_LBUTTONDOWN)

@@ -45,6 +45,14 @@ IntPtr wParam, IntPtr lParam);
             SendInput(1, ref i, Marshal.SizeOf(i));
         }
 
+        internal static void DoMouseWheelScroll(int x, int y, short delta)
+        {
+            Cursor.Position = new Point(x, y);
+            INPUT i = PrepareInput(MOUSEEVENTF_WHEEL);
+            i.mi.mouseData = delta;
+            SendInput(1, ref i, Marshal.SizeOf(i));
+        }
+
         internal static void DoMouseUp(int x, int y)
         {
             Cursor.Position = new Point(x, y);
@@ -62,6 +70,7 @@ CallingConvention = CallingConvention.StdCall)]
         //mouse event constants
         const int MOUSEEVENTF_LEFTDOWN = 2;
         const int MOUSEEVENTF_LEFTUP = 4;
+        const int MOUSEEVENTF_WHEEL = 0x0800;
 
         public const int WM_LBUTTONDOWN = 0x0201;
         public const int WM_LBUTTONUP = 0x0202;
